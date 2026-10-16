@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shakes Peers</title>
+<meta name="description" content="Shakes Peers' 5th Annual Year End Night Gala: A Masquerade Affair.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: sticky top bar (logo | Events | About), then one long page of centered sections on black with gold accents. */
+:root{
+  --black:#0b0a09;
+  --ink:#14110d;
+  --panel:#1a1610;
+  --gold:#d4af37;
+  --gold-soft:#b8964a;
+  --cream:#efe6d2;
+  --muted:#a89c82;
+  --line:rgba(212,175,55,.28);
+  --display:"Cinzel Decorative","Cinzel",Georgia,serif;
+  --label:"Cinzel",Georgia,serif;
+  --body:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--black);color:var(--cream);font-family:var(--body);font-size:1.2rem;line-height:1.6;
+  background-image:radial-gradient(ellipse at 50% -10%,rgba(212,175,55,.12),transparent 55%)}
+img{max-width:100%}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left,0px)) max(18px,env(safe-area-inset-right,0px))}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(11,10,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--gold);font-family:var(--display);font-size:1.15rem;letter-spacing:.04em;white-space:nowrap}
+.logo svg{width:38px;height:auto;flex:none}
+nav{display:flex;gap:clamp(14px,4vw,34px)}
+nav a{font-family:var(--label);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--cream);padding:8px 2px;border-bottom:1px solid transparent}
+nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* Hero */
+.hero{text-align:center;padding:clamp(48px,9vw,110px) 0 clamp(40px,7vw,80px)}
+.eyebrow{font-family:var(--label);font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-soft);margin:0 0 18px}
+.hero h1{font-family:var(--display);font-weight:700;color:var(--gold);font-size:clamp(2.1rem,7.5vw,4.6rem);line-height:1.1;margin:0;text-wrap:balance}
+.hero .sub{font-style:italic;font-size:clamp(1.3rem,3.6vw,1.9rem);color:var(--cream);margin:14px 0 0}
+.mask{width:min(210px,52vw);margin:0 auto 26px;display:block}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;margin:30px 0 0;padding:0;list-style:none}
+.meta li{font-family:var(--label);font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.meta b{display:block;color:var(--cream);font-weight:600;letter-spacing:.08em;font-size:1.05rem;margin-top:2px}
+.countdown{display:flex;justify-content:center;gap:clamp(10px,3vw,26px);margin:38px 0 0}
+.countdown div{min-width:68px;padding:12px 8px;border:1px solid var(--line);background:var(--ink)}
+.countdown strong{display:block;font-family:var(--display);color:var(--gold);font-size:clamp(1.6rem,6vw,2.4rem);font-variant-numeric:tabular-nums;line-height:1.1}
+.countdown span{font-family:var(--label);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cd-note{margin:18px 0 0;color:var(--muted);font-style:italic}
+.btn{display:inline-block;margin-top:34px;padding:14px 34px;background:var(--gold);color:var(--black);border:0;font-family:var(--label);font-size:.9rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--cream)}
+
+/* Sections */
+section{padding:clamp(44px,7vw,84px) 0;border-top:1px solid var(--line)}
+h2{font-family:var(--display);color:var(--gold);font-size:clamp(1.6rem,5vw,2.4rem);margin:0 0 10px;text-align:center;text-wrap:balance}
+.lede{text-align:center;color:var(--muted);max-width:56ch;margin:0 auto 38px;font-style:italic}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);padding:22px 22px 24px;min-width:0}
+.card h3{font-family:var(--label);font-weight:600;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.95rem;margin:0 0 8px}
+.card p{margin:0}
+.schedule{list-style:none;margin:0;padding:0}
+.schedule li{display:flex;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.schedule li:last-child{border-bottom:0}
+.schedule time{font-family:var(--label);color:var(--gold-soft);min-width:5.6em;font-size:.9rem;letter-spacing:.06em;padding-top:.2em}
+.swatches{display:flex;gap:8px;margin-top:12px}
+.swatches i{width:28px;height:28px;border:1px solid var(--line);display:block}
+.tbd{color:var(--muted);font-style:italic}
+
+/* Slideshow */
+.show{position:relative;max-width:820px;margin:0 auto}
+.stage{position:relative;aspect-ratio:3/2;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;display:grid;place-items:center;text-align:center}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide .ph{padding:20px}
+.slide .ph strong{display:block;font-family:var(--display);font-size:clamp(2.6rem,12vw,5rem);color:var(--gold)}
+.slide .ph span{color:var(--muted);font-style:italic}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-family:var(--label);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;color:var(--cream);text-align:center}
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(11,10,9,.7);border:1px solid var(--line);color:var(--gold);font-size:1.4rem;cursor:pointer;z-index:2}
+.nav-btn:hover{background:var(--gold);color:var(--black)}
+.prev{left:8px}.next{right:8px}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.dots button{width:12px;height:12px;border-radius:50%;border:1px solid var(--gold);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--gold)}
+
+/* Video */
+.video{max-width:820px;margin:0 auto;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-style:italic}
+.video video{width:100%;height:100%;display:block;background:#000}
+
+/* About */
+.story{max-width:62ch;margin:0 auto 44px;text-align:center}
+.peers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:16px}
+.peer{text-align:center;padding:18px 10px;background:var(--panel);border:1px solid var(--line);min-width:0}
+.peer .av{width:64px;height:64px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;border:1px solid var(--gold);font-family:var(--display);color:var(--gold);font-size:1.3rem}
+.peer b{display:block;font-family:var(--label);letter-spacing:.1em;font-weight:600;overflow-wrap:anywhere}
+.peer span{color:var(--muted);font-style:italic;font-size:1rem}
+h3.sub-h{font-family:var(--label);text-align:center;letter-spacing:.25em;text-transform:uppercase;font-size:.95rem;color:var(--gold-soft);margin:0 0 20px;font-weight:400}
+
+footer{border-top:1px solid var(--line);padding:38px 0 46px;text-align:center;color:var(--muted)}
+footer .logo{justify-content:center;margin-bottom:12px}
+footer p{margin:4px 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <!-- Logo reloads the website -->
+    <a class="logo" href="./" id="logo" aria-label="Shakes Peers, reload home">
+      <svg viewBox="0 0 120 70" aria-hidden="true"><path d="M4 28C18 10 40 10 60 22c20-12 42-12 56 6-6 22-26 34-46 24-6-3-8-8-10-8s-4 5-10 8C30 62 10 50 4 28z" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round"/><ellipse cx="38" cy="33" rx="12" ry="7" fill="#d4af37"/><ellipse cx="82" cy="33" rx="12" ry="7" fill="#d4af37"/></svg>
+      Shakes Peers
+    </a>
+    <nav aria-label="Main">
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="hero" id="home">
+    <svg class="mask" viewBox="0 0 120 70" aria-hidden="true"><path d="M4 28C18 10 40 10 60 22c20-12 42-12 56 6-6 22-26 34-46 24-6-3-8-8-10-8s-4 5-10 8C30 62 10 50 4 28z" fill="#14110d" stroke="#d4af37" stroke-width="2" stroke-linejoin="round"/><ellipse cx="38" cy="33" rx="12" ry="7" fill="#d4af37"/><ellipse cx="82" cy="33" rx="12" ry="7" fill="#d4af37"/></svg>
+    <p class="eyebrow">Shakes Peers' 5th Annual</p>
+    <h1>Year End Night Gala</h1>
+    <p class="sub">A Masquerade Affair</p>
+
+    <ul class="meta">
+      <li>Date<b id="m-date">To be announced</b></li>
+      <li>Time<b id="m-time">To be announced</b></li>
+      <li>Venue<b id="m-venue">To be announced</b></li>
+    </ul>
+
+    <div class="countdown" id="countdown" hidden aria-live="off">
+      <div><strong id="cd-d">0</strong><span>Days</span></div>
+      <div><strong id="cd-h">0</strong><span>Hours</span></div>
+      <div><strong id="cd-m">0</strong><span>Min</span></div>
+      <div><strong id="cd-s">0</strong><span>Sec</span></div>
+    </div>
+    <p class="cd-note" id="cd-note">The countdown starts once the date is set.</p>
+
+  </div>
+</div>
+
+<section id="events">
+  <div class="wrap">
+    <h2>The Night</h2>
+    <p class="lede">Everything you need to know before you put on the mask.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Program</h3>
+        <ul class="schedule">
+          <li><time>7:00 PM</time><span>Doors open, masks on</span></li>
+          <li><time>8:00 PM</time><span>Dinner and toasts</span></li>
+          <li><time>9:30 PM</time><span>Flashback video and games</span></li>
+          <li><time>11:00 PM</time><span>Dance floor</span></li>
+          <li><time>12:00 AM</time><span>Countdown to the new year</span></li>
+        </ul>
+        <p class="tbd" style="margin-top:8px">Times are a draft and may change.</p>
+      </article>
+      <article class="card">
+        <h3>Dress Code</h3>
+        <p>Formal attire and a mask are required. Gold, black and deep jewel tones suit the evening best.</p>
+        <div class="swatches" aria-label="Suggested colors"><i style="background:#d4af37"></i><i style="background:#0b0a09"></i><i style="background:#5b1a2b"></i><i style="background:#1d3a34"></i><i style="background:#efe6d2"></i></div>
+      </article>
+      <article class="card">
+        <h3>Location</h3>
+        <p id="loc-text">Venue and address will be shared here.</p>
+        <p style="margin-top:10px"><a id="loc-link" href="#" hidden target="_blank" rel="noopener">Get directions</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="wrap">
+    <h2>Four Years of Christmas Parties</h2>
+    <p class="lede">From 2022 to 2025, the nights that led to this one.</p>
+    <div class="show" id="show" aria-roledescription="carousel" aria-label="Christmas Party photos">
+      <div class="stage" id="stage"></div>
+      <button class="nav-btn prev" id="prev" aria-label="Previous photo">&#8249;</button>
+      <button class="nav-btn next" id="next" aria-label="Next photo">&#8250;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="flashback">
+  <div class="wrap">
+    <h2>The Flashback</h2>
+    <p class="lede">Relive the past years before the new one begins.</p>
+    <div class="video" id="video"><p>The flashback video will play here.</p></div>
+  </div>
+</section>
+
+<section id="theme-song">
+  <div class="wrap">
+    <h2>Our Theme Song</h2>
+    <p class="lede">The song that sounds like Shakes Peers.</p>
+    <div class="video" id="theme-video"><p>The theme song video will play here.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Shakes Peers</h2>
+    <p class="story" id="story">Shakes Peers is a group of friends who end every year together. What started as a Christmas party in 2022 has grown into a yearly tradition, and this year it becomes a masquerade. Add your own story here: how the group met, the inside jokes, and what the night means to everyone.</p>
+    <h3 class="sub-h">Meet the Peers</h3>
+    <div class="peers" id="peers"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="./" id="logo2">Shakes Peers</a>
+    <p>Year End Night Gala: A Masquerade Affair</p>
+    <p id="contact-line">Questions? Message the organizers.</p>
+    <p>&copy; <span id="yr"></span> Shakes Peers</p>
+  </div>
+</footer>
+
+<script>
+/* ========= EDIT THESE ========= */
+var CONFIG = {
+  galaDate: null,            /* e.g. "2026-12-27T19:00:00+08:00" starts the countdown */
+  dateText: "",              /* e.g. "Sunday, December 27" */
+  timeText: "",              /* e.g. "7:00 PM" */
+  venue: "",                 /* e.g. "The Grand Hall" */
+  address: "",               /* shown under Location */
+  mapsLink: "",              /* Google Maps share link */
+  videoSrc: "",              /* e.g. "flashback.mp4" placed next to index.html */
+  themeVideoSrc: "",         /* theme song video file, e.g. "theme-song.mp4" placed next to index.html */
+  themeYouTubeId: "",        /* or the YouTube video ID, e.g. "dQw4w9WgXcQ" (the part after v=) */
+  contact: "",               /* e.g. "Message Vince on Messenger" */
+  slides: [                  /* set src to a photo path, e.g. "photos/2022-1.jpg" */
+    { year: "2022", src: "", caption: "Christmas Party 2022" },
+    { year: "2023", src: "", caption: "Christmas Party 2023" },
+    { year: "2023", src: "", caption: "Christmas Party 2023" },
+    { year: "2024", src: "", caption: "Christmas Party 2024" },
+    { year: "2025", src: "", caption: "Christmas Party 2025" }
+  ],
+  peers: []                  /* e.g. [{name:"Alex", tag:"The Host"}, ...] */
+};
+/* ============================== */
+
+(function(){
+  /* Logo reloads the site */
+  function reload(e){ e.preventDefault(); window.location.reload(); }
+  document.getElementById("logo").addEventListener("click", reload);
+  document.getElementById("logo2").addEventListener("click", reload);
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* Event details */
+  function setText(id, v){ if(v){ document.getElementById(id).textContent = v; } }
+  setText("m-date", CONFIG.dateText); setText("m-time", CONFIG.timeText); setText("m-venue", CONFIG.venue);
+  if(CONFIG.venue || CONFIG.address){
+    document.getElementById("loc-text").textContent = [CONFIG.venue, CONFIG.address].filter(Boolean).join(", ");
+  }
+  if(CONFIG.mapsLink){ var l = document.getElementById("loc-link"); l.href = CONFIG.mapsLink; l.hidden = false; }
+  if(CONFIG.contact){ document.getElementById("contact-line").textContent = CONFIG.contact; }
+
+  /* Countdown */
+  if(CONFIG.galaDate){
+    var target = new Date(CONFIG.galaDate).getTime();
+    var box = document.getElementById("countdown"), note = document.getElementById("cd-note");
+    box.hidden = false; note.hidden = true;
+    var tick = function(){
+      var diff = Math.max(0, target - Date.now());
+      document.getElementById("cd-d").textContent = Math.floor(diff/864e5);
+      document.getElementById("cd-h").textContent = Math.floor(diff%864e5/36e5);
+      document.getElementById("cd-m").textContent = Math.floor(diff%36e5/6e4);
+      document.getElementById("cd-s").textContent = Math.floor(diff%6e4/1e3);
+      if(diff === 0){ note.hidden = false; note.textContent = "Tonight is the night."; }
+    };
+    tick(); setInterval(tick, 1000);
+  }
+
+  /* Slideshow */
+  var stage = document.getElementById("stage"), dots = document.getElementById("dots");
+  var slides = CONFIG.slides, idx = 0, timer = null, els = [], dotEls = [];
+  slides.forEach(function(s, i){
+    var d = document.createElement("div"); d.className = "slide";
+    if(s.src){
+      var im = document.createElement("img"); im.src = s.src; im.alt = s.caption || ("Christmas Party " + s.year); im.loading = i === 0 ? "eager" : "lazy";
+      d.appendChild(im);
+    } else {
+      d.innerHTML = '<div class="ph"><strong>' + s.year + '</strong><span>Photos coming soon</span></div>';
+    }
+    var c = document.createElement("div"); c.className = "cap"; c.textContent = s.caption || s.year; d.appendChild(c);
+    stage.appendChild(d); els.push(d);
+    var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Show " + s.year);
+    b.addEventListener("click", function(){ go(i); restart(); });
+    dots.appendChild(b); dotEls.push(b);
+  });
+  function go(n){
+    idx = (n + slides.length) % slides.length;
+    els.forEach(function(el, i){ el.classList.toggle("on", i === idx); });
+    dotEls.forEach(function(el, i){ el.setAttribute("aria-current", i === idx ? "true" : "false"); });
+  }
+  function restart(){
+    clearInterval(timer);
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){ timer = setInterval(function(){ go(idx + 1); }, 4500); }
+  }
+  document.getElementById("prev").addEventListener("click", function(){ go(idx - 1); restart(); });
+  document.getElementById("next").addEventListener("click", function(){ go(idx + 1); restart(); });
+  if(slides.length){ go(0); restart(); }
+
+  /* Video */
+  if(CONFIG.videoSrc){
+    var v = document.getElementById("video"); v.innerHTML = "";
+    var vid = document.createElement("video"); vid.src = CONFIG.videoSrc; vid.controls = true; vid.preload = "metadata"; vid.playsInline = true;
+    v.appendChild(vid);
+  }
+
+  /* Theme song video: a file next to index.html, or a YouTube ID */
+  var tv = document.getElementById("theme-video");
+  if(CONFIG.themeVideoSrc){
+    tv.innerHTML = "";
+    var tvid = document.createElement("video"); tvid.src = CONFIG.themeVideoSrc; tvid.controls = true; tvid.preload = "metadata"; tvid.playsInline = true;
+    tv.appendChild(tvid);
+  } else if(CONFIG.themeYouTubeId){
+    tv.innerHTML = "";
+    var fr = document.createElement("iframe");
+    fr.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(CONFIG.themeYouTubeId);
+    fr.title = "Shakes Peers theme song"; fr.allow = "accelerometer; encrypted-media; picture-in-picture"; fr.allowFullscreen = true;
+    fr.style.cssText = "width:100%;height:100%;border:0;display:block";
+    tv.appendChild(fr);
+  }
+
+  /* Meet the Peers */
+  var peers = CONFIG.peers.length ? CONFIG.peers : [1,2,3,4,5,6].map(function(n){ return { name:"Peer " + n, tag:"Add a name", ph:true }; });
+  var pbox = document.getElementById("peers");
+  peers.forEach(function(p){
+    var d = document.createElement("div"); d.className = "peer";
+    var init = p.ph ? "?" : p.name.trim().charAt(0).toUpperCase();
+    d.innerHTML = '<div class="av"></div><b></b><span></span>';
+    d.querySelector(".av").textContent = init;
+    d.querySelector("b").textContent = p.name;
+    d.querySelector("span").textContent = p.tag || "";
+    pbox.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
